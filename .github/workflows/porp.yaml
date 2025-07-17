@@ -1,0 +1,25 @@
+name: porp
+on: [push, pull_request]
+
+jobs:
+
+  push:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: on va pusher
+
+        run: echo "C'est un push !"
+  
+  pull:
+    runs-on: ubuntu-latest
+    if: ${{github.env.pull == 'pull_request'}}
+    steps:
+      - uses: actions/checkout@v4
+      - name: on va puller
+        run: echo "c'est une pull-request !"
+
+
+
+
