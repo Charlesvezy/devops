@@ -1,0 +1,13 @@
+name: merger
+
+on:
+  pull_request:
+    types: [closed]
+
+jobs:
+  pr-merged-message:
+    if: ${{github.event.pull_request.merged == true }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: message si la PR est mergée
+        run: echo "La pull request a été mergée  !"
